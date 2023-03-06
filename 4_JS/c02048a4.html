@@ -1,0 +1,331 @@
+<html>
+<head>
+  <title>a:2048 puzzle</title>
+  <style>
+    body{background: linear-gradient(130deg,lightpink,lightyellow,orange,lightblue);
+    text-align: center;}
+    a{
+      cursor: pointer;
+      padding: 2%;
+      font-size: large;
+      border-radius: 50%;
+      background-color: brown;
+      color: white;
+      font-weight: bold;
+    }
+    table{
+      margin: auto;
+      border-radius: 15%;
+      padding: 8px;
+    }
+    td{
+      width: 60px;
+      height: 60px;
+      font-size: 26px;
+      font-weight: bold;
+      text-align: center;
+      border-radius: 50%;
+      box-shadow:10px 10px 10px lightblue;
+    }
+  </style>
+<script >
+var min = 0;
+var max = 3;    //格子為4乘4
+var score = 0;
+var isMoved = false;// boolean
+
+function getStart() {   //隨機抽2格，值設為2
+  var a = Math.floor(Math.random()*(max-min+1)+min);
+  var b = Math.floor(Math.random()*(max-min+1)+min);
+  var c = Math.floor(Math.random()*(max-min+1)+min);
+  do{
+    var d = Math.floor(Math.random()*(max-min+1)+min);
+  }while((a==c)&&(b==d))
+  var id1=a+""+b;
+  var id2=c+""+d;
+  
+  document.getElementById(id1).innerHTML = "2";//Set initial 2 values
+  document.getElementById(id2).innerHTML = "2";
+
+  document.getElementById(id1).style.backgroundColor = getColor(2);
+  document.getElementById(id2).style.backgroundColor = getColor(2);
+  
+  score = 0;
+  document.getElementById("score").innerHTML = score;
+}
+function up() {  //0行起，0列起往下，結束往右1行？？？為何不能從0列起？
+  isMoved = false;
+  for(var i=min;i<=max;i++) {
+    for(var j=min;j<=max;j++) {
+      var id = i+""+j;
+      if(document.getElementById(id).innerHTML != "") { //假如這格有人，就移動
+        moveUp(id);
+      }
+    }
+  }
+  if(isMoved == true) {//全部檢查完，並執行過移動執令後，若有任何移動
+    reNew();
+  }
+}
+function moveUp(id) {		//移動此格
+  if(!id.startsWith(min)){//若非第0行就執行（startsWith判別字首是否為相同字，同則回傳True否則False
+    var arr = id.split(""); //字串切割
+    var i = arr[0];
+    var j = arr[1];
+    for(var k=(i-1);k>=min;k--) {//此格的上方格逐一檢查（例：全是空則移到最上方
+      var nId = k+""+j;
+      if(document.getElementById(nId).innerHTML != "") {//若上方格不是空的
+        var val = parseInt(document.getElementById((k+1)+""+j).innerHTML);//取得此格的值（parseInt將字串轉換為以十進位表示的整數，若未轉十進位，則2,2 會合成22而非4
+        var nVal = parseInt(document.getElementById(nId).innerHTML);//取得上方格的值
+        if(val == nVal) {//若2格的值相等
+            document.getElementById(nId).innerHTML = (val+nVal);//將上方格改為2格之和
+            document.getElementById(nId).style.backgroundColor = getColor((val+nVal));//改上方格色
+            document.getElementById((k+1)+""+j).innerHTML = "";//將此格改為空
+            document.getElementById((k+1)+""+j).style.backgroundColor = "#ffffff";//修改此格色
+            isMoved = true;//移動為真？？？
+            score += (val+nVal);//加分
+        }
+        break;//2格的值不等，或字串與陣列重覆，則不動作，isMoved=false
+      }
+      else {//若上方格是空的
+        document.getElementById(nId).innerHTML = document.getElementById((k+1)+""+j).innerHTML;
+        document.getElementById(nId).style.backgroundColor = document.getElementById((k+1)+""+j).style.backgroundColor;
+        document.getElementById((k+1)+""+j).innerHTML = "";
+        document.getElementById((k+1)+""+j).style.backgroundColor = "#ffffff";
+        isMoved = true;
+      }
+    }
+  }
+}
+function left() {  //0列起，0行起往右，結束往下1列
+  isMoved = false;
+  for(var i=min;i<=max;i++) {
+    for(var j=min;j<=max;j++) {
+      var id = i+""+j;
+      if(document.getElementById(id).innerHTML != "") {
+        moveLeft(id);
+      }
+    }
+  }
+  if(isMoved == true) {//
+    reNew();
+  }
+}
+function moveLeft(id) {
+  if(!id.endsWith(min)) {
+    var arr = id.split("");
+    var i = parseInt(arr[0]);
+    var j = parseInt(arr[1]);
+    for(var k=(j-1);k>=min;k--) {
+      var nId = i+""+k;
+      if(document.getElementById(nId).innerHTML != "") {
+        var val = parseInt(document.getElementById(i+""+(k+1)).innerHTML);
+        var nVal = parseInt(document.getElementById(nId).innerHTML);
+        if(val == nVal) {
+            document.getElementById(nId).innerHTML = (val+nVal);
+            document.getElementById(nId).style.backgroundColor = getColor((val+nVal));
+            document.getElementById(i+""+(k+1)).innerHTML = "";
+            document.getElementById(i+""+(k+1)).style.backgroundColor = "#ffffff";
+            isMoved = true;
+            score += (val+nVal);
+        }
+        break;
+      }
+      else {
+        document.getElementById(nId).innerHTML = document.getElementById(i+""+(k+1)).innerHTML;
+        document.getElementById(nId).style.backgroundColor = document.getElementById(i+""+(k+1)).style.backgroundColor;
+        document.getElementById(i+""+(k+1)).innerHTML = "";
+        document.getElementById(i+""+(k+1)).style.backgroundColor = "#ffffff";
+        isMoved = true;
+      }
+    }
+  }
+}
+function down() {  //0行起，3列起往上，結束往右1行
+  isMoved = false;
+  for(var i=max;i>=min;i--) {
+    for(var j=min;j<=max;j++) {
+      var id = i+""+j;
+      if(document.getElementById(id).innerHTML != "") {
+        moveDown(id);
+      }
+    }
+  }
+  if(isMoved == true) {
+    reNew();
+  }
+}
+function moveDown(id) {
+  if(!id.startsWith(max)) {
+    var arr = id.split("");
+    var i = parseInt(arr[0]);
+    var j = parseInt(arr[1]);
+    for(var k=(i+1);k<=max;k++) {
+      var nId = k+""+j;
+      if(document.getElementById(nId).innerHTML != "") {
+        var val = parseInt(document.getElementById((k-1)+""+j).innerHTML);
+        var nVal = parseInt(document.getElementById(nId).innerHTML);
+        if(val == nVal) {
+            document.getElementById(nId).innerHTML = (val+nVal);
+            document.getElementById(nId).style.backgroundColor = getColor((val+nVal));
+            document.getElementById((k-1)+""+j).innerHTML = "";
+            document.getElementById((k-1)+""+j).style.backgroundColor = "#ffffff";
+            isMoved = true;
+            score += (val+nVal);
+        }
+        break;
+      }
+      else {
+        document.getElementById(nId).innerHTML = document.getElementById((k-1)+""+j).innerHTML;
+        document.getElementById(nId).style.backgroundColor = document.getElementById((k-1)+""+j).style.backgroundColor;
+        document.getElementById((k-1)+""+j).innerHTML = "";
+        document.getElementById((k-1)+""+j).style.backgroundColor = "#ffffff";
+        isMoved = true;
+      }
+    }
+  }
+}
+function right() {  //0列起，3行起往左，結束往下1列
+  isMoved = false;
+  for(var i=min;i<=max;i++) {
+    for(var j=max;j>=min;j--) {
+      var id = i+""+j;
+      if(document.getElementById(id).innerHTML != "") {
+        moveRight(id);
+      }
+    }
+  }
+  if(isMoved == true) {
+    reNew();
+  }
+}
+function moveRight(id) {
+  if(!id.endsWith(max)) {
+    var arr = id.split("");
+    var i = parseInt(arr[0]);
+    var j = parseInt(arr[1]);
+    for(var k=(j+1);k<=max;k++) {
+      var nId = i+""+k;
+      if(document.getElementById(nId).innerHTML != "") {
+        var val = parseInt(document.getElementById(i+""+(k-1)).innerHTML);
+        var nVal = parseInt(document.getElementById(nId).innerHTML);
+        if(val == nVal) {
+            document.getElementById(nId).innerHTML = (val+nVal);
+            document.getElementById(nId).style.backgroundColor = getColor((val+nVal));
+            document.getElementById(i+""+(k-1)).innerHTML = "";
+            document.getElementById(i+""+(k-1)).style.backgroundColor = "#ffffff";
+            isMoved = true;
+            score += (val+nVal);
+        }
+        break;
+      }
+      else {
+        document.getElementById(nId).innerHTML = document.getElementById(i+""+(k-1)).innerHTML;
+        document.getElementById(nId).style.backgroundColor = document.getElementById(i+""+(k-1)).style.backgroundColor;
+        document.getElementById(i+""+(k-1)).innerHTML = "";
+        document.getElementById(i+""+(k-1)).style.backgroundColor = "#ffffff";
+        isMoved = true;
+      }
+    }
+  }
+}
+function reNew() {		//Add new value
+  var ids = [];
+  for(var i=min;i<=max;i++) {//一格格檢查，將空的id記錄下來，以便亂數加進「1個」新的2
+    for(var j=min;j<=max;j++) {
+      var id = i+""+j;
+      if(document.getElementById(id).innerHTML == "") {
+        ids.push(id);
+      }
+    }
+  }
+  var id = ids[Math.floor(Math.random()*ids.length)];//亂數加進新的2
+  document.getElementById(id).innerHTML = "2";
+  document.getElementById(id).style.backgroundColor = getColor(2);
+  
+  document.getElementById("score").innerHTML = score;//Update score
+
+  if(ids.length==1) {//雖有1空格，已被新亂數填上。檢查是否還有空格可玩
+    checkGameOver();
+  }
+}
+function checkGameOver() {
+  var isOver = true;
+  for(var j=min;j<=max;j++) {
+    for(var i=min;i<=(max-1);i++) {
+      var val = parseInt(document.getElementById(i+""+j).innerHTML);
+      var nVal = parseInt(document.getElementById((i+1)+""+j).innerHTML);
+      if(val == nVal) {
+        isOver = false;
+        break;
+      }
+    }
+  }		
+  if(isOver == true) {
+    for(var i=min;i<=max;i++) {
+      for(var j=min;j<=(max-1);j++) {
+        var val = parseInt(document.getElementById(i+""+j).innerHTML);
+        var nVal = parseInt(document.getElementById(i+""+(j+1)).innerHTML);
+        if(val == nVal) {
+          isOver = false;
+          break;
+        }
+      }
+    }
+  }
+  if(isOver) {
+    alert("Game over!");
+  }
+}
+function getColor(val){
+  var color = "#ffffff";
+  switch(val) {
+    case 2:		color = "#F6CED8"; break;
+    case 4:		color = "#F7BE81"; break;
+    case 8:		color = "#F3F781"; break;
+    case 16:	color = "#BEF781"; break;
+    case 32:	color = "#81F7D8"; break;
+    case 64:	color = "#58D3F7"; break;
+    case 128:	color = "#FA58F4"; break;
+    case 256:	color = "#A901DB"; break;
+    case 512:	color = "#01DF3A"; break;
+    case 1024:color = "#D7DF01"; break;
+    case 2048:color = "#D7DF01"; break;
+    default:	color = "#ffffff";
+  }
+  return color;
+}
+
+document.onkeydown = function(e) {
+  e.preventDefault();//to prevent scroll of screen
+  switch (e.keyCode) {
+    case 37:left(); break;
+    case 38:up();   break;
+    case 39:right();break;
+    case 40:down(); break;
+  }
+};  
+</script>
+</head>
+<body>
+  <div>
+    <a onclick="return getStart();">new game</a><br><br>
+    <table border="1">
+      <tr>
+        <td id="00"></td><td id="01"></td><td id="02"></td><td id="03"></td>
+      </tr>
+      <tr>
+        <td id="10"></td><td id="11"></td><td id="12"></td><td id="13"></td>
+      </tr>
+      <tr>
+        <td id="20"></td><td id="21"></td><td id="22"></td><td id="23"></td>
+      </tr>
+      <tr>
+        <td id="30"></td><td id="31"></td><td id="32"></td><td id="33"></td>
+      </tr>
+    </table>
+    <h2>Score : <span id="score"></span></h2>
+    <b>玩法：</b>上下左右鍵
+  </div>
+</body>
+</html>

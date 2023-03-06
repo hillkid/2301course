@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head><meta charset="UTF-8">
+<title>國家公園介紹網</title>
+<style>
+  /* body *{box-shadow: 0 0 10px black;} */
+  .content{
+    display: flex;  flex-wrap: wrap;
+    width: 1024px;  height: 768px;
+    margin: auto;
+  }
+  header{
+    width: 1024px;  height: 65px;
+    background-color: #00f;
+    text-align: center;
+  }
+  aside{
+    width: 200px; height: 683px;
+    background-color: #0ff;
+    text-align: center;
+  }
+  /* aside>a{display: block;} */
+  aside img{
+    width: 120px; height: 40px;
+    margin-top: 5px;
+    margin-bottom: 30px;
+  }
+  aside img:hover{
+    filter: sepia(100%);
+  }
+  nav{
+    width: 824px;  height: 29px;
+  }
+  iframe{
+    width: 824px;  height: 654px;
+  }
+  footer{
+    width: 1024px;  height: 20px;
+    text-align: center;
+    font-family: 標楷體;
+    color: #000;
+    font-size: 16px;
+    background:#eee;
+  }
+</style>
+</head>
+<body><div class="content">
+
+<header>
+  <a href="./index3.html" target="_self">
+    <img src="./images/gif15.gif" alt="">
+  </a>
+</header>
+
+<aside>
+  <a href="./park/yangmingshan032.html" target="main">
+    <img src="./images/park0302.jpg" alt="陽明山國家公園">
+  </a>
+  <a href="./park/sheipa032.html" target="main">
+  <img src="./images/park0303.jpg" alt="雪霸國家公園">
+  </a>  
+  <img src="./images/park0304.jpg" alt="太魯閣國家公園">
+  <img src="./images/park0305.jpg" alt="玉山國家公園">
+  <br>  
+  <a href="./others/park.mp3" download="">檔案下載</a>
+</aside>
+
+<section>
+  <nav>
+    <marquee>歡迎進入國家公園介紹網，本網站有詳細的國家公園介紹哦！</marquee>
+  </nav>
+
+  <main>
+    <iframe name="main" src="./main.html" frameborder="0"></iframe>
+  </main>
+</section>
+
+<footer>
+  網頁設計及維護：05陳義明、最近更新日期：yyyy/mm/dd」
+</footer>
+
+</div></body>
+</html>
