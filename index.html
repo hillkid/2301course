@@ -1,0 +1,367 @@
+<!DOCTYPE html><html lang="zh-tw"><head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="./images/favicon.ico" rel="shortcut icon"/>
+  <link rel="shortcut icon" href="./images/favicon.ico" type="image/x-icon">
+  <title>Course ^_^ 2022</title>
+  <link rel="stylesheet" href="./2_CSS/vP5-flexTaiwan/twicon/twicon.css"><!-- 台灣icon -->
+  <link rel="stylesheet" href="./bootstrap/bootstrap513.css">
+  <script src="./bootstrap/jquery.min.js"></script>
+  <script src="./bootstrap/bootstrap513.bundle.js"></script>
+  <base target="course">
+  <style>
+    body{background-color: mistyrose;}
+    nav{background-color: rgba(0,0,0,0.5);}
+    nav>div>div>a,nav>div>div>ul>li>a:link{font-size: large;
+      text-shadow: white 0rem 0rem 0rem;
+      margin: 0 0.2rem;  padding: 0;
+      /* background-color: transparent; */
+    }
+    nav>div>button>span{background-color: green;}
+    i{font-size: 2rem;}
+    #mySlider {text-shadow: black 0.1rem 0.1rem 0.1rem;
+    }
+    #mySlider img{object-fit: cover;  filter: grayscale(10%);
+    }
+    #mySlider>div>button {border-radius: 40%;
+      height: 20px;width: 20px;
+      margin: 5px 1rem;  
+      background-color:coral; 
+    }
+    header{background-color: peachpuff; border-radius: 8%;}
+    header div>.active {box-shadow: 0px 0px 6px 1px gray;
+    }
+    body>ul,article{text-shadow: black 0.1rem 0.1rem 0.2rem;
+      background-image: url(./2_CSS/vP6-scss/Pictures/pexels-photo-416676.jpeg);
+      background-position: center;
+      background-size: cover;
+      background-attachment: fixed;
+    }
+    body>ul>li>div>h2{background-color: rgba(0,0,0,0.25);
+      border-radius: 40%;text-align: center;
+    }
+    main{background-color:peachpuff; }
+    /* main>div{max-width: 1140px;} */
+    /* main>div>iframe{width: 1100px;height: 860px;} */
+    /* article{height: 960px;} */
+    footer a {right: 0vh; bottom: 0vh;  z-index: 1;
+      animation: myTop 10s ease infinite;
+    }
+    @keyframes myTop {
+      0%,20% {transform: translate(0, 0);}
+      40%,42% {transform: translate(0, -35px);}
+      55% {
+        animation-timing-function: ease-out;
+        transform: translate(0, 0);
+      }
+      75% {transform: translate(0, -18px);}
+      88% {transform: translate(0, 0);}
+      95% {transform: translate(0, -5px);}
+      100% {transform: translate(0, 0);}
+    }
+  </style>
+</head>
+<body class="container-fuild">
+<nav id="myNav" class="navbar navbar-expand-md navbar-dark fixed-top p-0">
+  <div class="container-lg">
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navBar">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navBar">
+      <a class="navbar-brand p-0" href="#mySlider" target="_self"><i class="twicon-black-bear"></i>網頁設計班</a>
+      <ul class="navbar-nav ms-auto mb-2 mb-lg-0 fw-bold">
+        <li class="nav-item">
+          <a class="nav-link btn btn-outline-success text-start" target="_self" href="#mySlider"><i class="twicon-taipei101"></i>影像處理</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link btn btn-outline-success text-start" target="_self" href="#myCss"><i class="twicon-postbox2"></i>Css</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link btn btn-outline-success text-start" target="_self" href="#myWeb"><i class="twicon-cks-hall"></i>證照課程+ <i class="twicon-queens-head"></i>UI前端</a>
+        </li>
+        <!-- <li class="nav-item">
+          <a class="nav-link btn btn-outline-success text-start" target="_self" href="#myPhp"><i class="twicon-tea-pot"></i>新考題</a>
+        </li> -->
+        <li class="nav-item">
+          <a class="nav-link btn btn-outline-success text-start" target="_self" href="#myJs"><i class="twicon-flying-fish"></i>javascript</a>
+        </li>        
+      </ul>
+    </div>
+  </div>
+</nav><!-- 套用 BS 的 nav 的flex類+btn  （原本要加 Scrollspy 但失敗） -->
+
+<div>
+  <div id="mySlider" class="carousel slide" data-bs-ride="carousel">
+  
+    <div class="carousel-indicators">
+      <button type="button" data-bs-target="#mySlider" data-bs-slide-to="0" class="active"></button>
+      <button type="button" data-bs-target="#mySlider" data-bs-slide-to="1"></button>
+      <button type="button" data-bs-target="#mySlider" data-bs-slide-to="2"></button>
+      <button type="button" data-bs-target="#mySlider" data-bs-slide-to="3"></button>
+      <button type="button" data-bs-target="#mySlider" data-bs-slide-to="4"></button>
+    </div>
+  
+    <section class="carousel-inner">
+  
+      <div class="carousel-item vh-100 active">
+        <img src="./images/photoshop-01.gif" class="h-100 d-block w-100">
+        <div class="carousel-caption d-none d-md-block">
+          <h1><sup>[影像處理1]</sup> 你能走出你的框框嗎？</h1>
+          <p>Some representative placeholder content for the first slide.</p>
+        </div>
+      </div>
+  
+      <div class="carousel-item vh-100">
+        <img src="./images/photoshop-02.jpg" class="h-100 d-block w-100">
+        <div class="carousel-caption d-none d-md-block">
+          <h1><sup>[影像處理2]</sup> 天色變得比心情還快。</h1>
+          <p>Some representative placeholder content for the second slide.</p>
+        </div>
+      </div>
+  
+      <div class="carousel-item vh-100">
+        <img src="./images/photoshop-03.gif" class="h-100 d-block w-100">
+        <div class="carousel-caption d-none d-md-block">
+          <h1><sup>[影像處理3]</sup> 照樣下雪的夏天。</h1>
+          <p>Some representative placeholder content for the third slide.</p>
+        </div>
+      </div>
+  
+      <div class="carousel-item vh-100">
+        <img src="./images/photoshop-04.jpg" class="h-100 d-block w-100">
+        <div class="carousel-caption d-none d-md-block">
+          <h1><sup>[影像處理4]</sup> 要有光！就有了光。</h1>
+          <p>Some representative placeholder content for the third slide.</p>
+        </div>
+      </div>
+  
+      <div class="carousel-item vh-100">
+        <img src="./images/photoshop-07.jpg" class="h-100 d-block w-100">
+        <div class="carousel-caption d-none d-md-block">
+          <h1><sup>[影像處理5]</sup> 不處理最美。</h1>
+          <p>Some representative placeholder content for the third slide.</p>
+        </div>
+      </div>
+  
+    </section>
+  
+    <button class="carousel-control-prev" type="button" data-bs-target="#mySlider" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon"></span>
+      <span class="visually-hidden">Previous</span>
+    </button>
+  
+    <button class="carousel-control-next" type="button" data-bs-target="#mySlider" data-bs-slide="next">
+      <span class="carousel-control-next-icon"></span>
+      <span class="visually-hidden">Next</span>
+    </button>
+  
+  </div><!-- 套用 BS 的 carousel -->
+</div>
+
+<header id="myCss" class="container-lg py-5 my-1">
+  <div class="nav nav-tabs text-center flex-nowrap justify-content-around">
+    <div><i class="twicon-postbox2"></i>CSS課程<i class="twicon-postbox2"></i></div>
+    <button class="nav-link" data-bs-toggle="tab" data-bs-target="#nav-profile" type="button">小店</button>
+    <button class="nav-link" data-bs-toggle="tab" data-bs-target="#nav-home" type="button">太陽系</button>
+    <button class="nav-link" data-bs-toggle="tab" data-bs-target="#nav-contact" type="button">名畫介紹</button>
+    <button class="nav-link active" data-bs-toggle="tab" data-bs-target="#nav-taiwan" type="button">台灣經濟</button>
+    <button class="nav-link" data-bs-toggle="tab" data-bs-target="#nav-hawaii" type="button">夏威夷</button>
+  </div>
+  <div class="tab-content py-1">
+    <div class="tab-pane fade ratio ratio-16x9" id="nav-home">
+      <iframe src="./2_CSS/vP3-plants/v3-planets.html"></iframe>
+    </div>
+    <div class="tab-pane fade ratio ratio-16x9" id="nav-profile">
+      <iframe src="./2_CSS/vP1-clothes/v1cat.html"></iframe>
+    </div>
+    <div class="tab-pane fade ratio ratio-16x9" id="nav-contact">
+      <iframe src="./2_CSS/vP4-RWDpainter/v42rwd.html"></iframe>
+    </div>
+    <div class="tab-pane fade ratio ratio-16x9 show active" id="nav-taiwan">
+      <iframe src="./2_CSS/vP5-flexTaiwan/vP5index.html"></iframe>
+    </div>
+    <div class="tab-pane fade ratio ratio-16x9" id="nav-hawaii">
+      <iframe src="./2_CSS/vP6-scss/vP6.html"></iframe>
+    </div>
+  </div>
+</header><!-- 套用 Navs & tabs, 其中JS第二版 -->
+
+<ul id="myJs" class="row list-unstyled m-1 g-4 justify-content-evenly text-white">
+  <li class="col-12 col-md-6 col-xl-5 col-xxl-4 g-4 row">
+    <div class="col-9 col-md-12">
+      <div class="ratio ratio-1x1">
+        <iframe class="" src="./4_JS/c01guess-7.html"></iframe>
+      </div>
+    </div>
+    <div class="col-3 col-md-12">
+      <h2><i class="twicon-flying-fish"></i>猜數字遊戲</h2>
+      <p class="pb-3 border-bottom border-warning">
+        Lorem ipsum dolor sit ametsyonsectetur, adipisicing elit. Reiciendis, quas!
+      </p>
+    </div>
+  </li>
+
+  <li class="col-12 col-md-6 col-xl-5 col-xxl-4 g-4 row">
+    <div class="col-9 col-md-12">
+      <div class="ratio ratio-1x1">
+        <iframe class="" src="./4_JS/c02048a4.html"></iframe>
+      </div>
+    </div>
+    <div class="col-3 col-md-12">
+      <h2><i class="twicon-flying-fish"></i>２０４８</h2>
+      <p class="pb-3 border-bottom border-warning">
+        Lorem ipsum dolor sit ametsyonsectetur, adipisicing elit. Reiciendis, quas!
+      </p>
+    </div>
+  </li>
+
+  <li class="row justify-content-center my-5">
+    <div class="col-12 col-md-10 col-xl-10 col-xxl-8">
+      <div class="ratio ratio-16x9">
+        <iframe class="" src="./4_JS/Cal5RWD/cal5.html"></iframe>
+      </div>
+    </div>
+    <div class="col-12 col-md-2 col-xl-1 col-xxl-1">
+      <h2><i class="twicon-flying-fish"></i>行事曆</h2>
+      <p class="pb-3 border-bottom border-warning">
+        Lorem ipsum dolor sit ametsyonsectetur, adipisicing elit. Reiciendis, quas!
+      </p>
+    </div>
+  </li>
+</ul>
+
+<main id="myWeb" class="container-xl py-3 rounded-3">
+  <div class="row">
+    <ul class="nav nav-pills justify-content-evenly mt-5">
+      <li class="fw-bold"><i class="twicon-cks-hall"></i>證照課程<i class="twicon-cks-hall"></i></li>
+
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button">網頁設計練習</a>
+        <ul class="dropdown-menu">
+          <li><a class="dropdown-item" href="./3_web/web01/index1.html">校園社團</a></li>
+          <li><a class="dropdown-item" href="./3_web/web02/index2.html">運動廣場</a></li>
+          <li><a class="dropdown-item" href="./3_web/web03/index3.html">國家公園</a></li>
+          <li><a class="dropdown-item" href="./3_web/web04/index4.html">網路購物</a></li>
+          <li><a class="dropdown-item" href="./3_web/web05/index5.html">旅遊相簿</a></li>
+        </ul>
+      </li>
+
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button">網丙_題目</a>
+        <ul class="dropdown-menu">
+          <li><a class="dropdown-item" href="./images/術科01.pdf">題目：校園社團</a></li>
+          <li><a class="dropdown-item" href="./images/術科02.pdf">題目：運動廣場</a></li>
+          <li><a class="dropdown-item" href="./images/術科03.pdf">題目：國家公園</a></li>
+          <li><a class="dropdown-item" href="./images/術科04.pdf">題目：網路購物</a></li>
+          <li><a class="dropdown-item" href="./images/術科05.pdf">題目：旅遊相簿</a></li>
+        </ul>
+      </li>
+
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button">專題 & 軟乙</a>
+        <ul class="dropdown-menu">
+          <!-- <li><a class="dropdown-item" href="http://localhost/course/3_web/1student/index.html">學員資料管理系統</a></li> -->
+          <li><a class="dropdown-item" href="./images/軟乙題目.pdf">軟體乙級題目</a></li>
+          <li><a class="dropdown-item" href="./images/6-1-D2.docx">軟乙練習（下載）</a></li>
+        </ul>
+      </li>
+
+      <div class="btn-group">
+        <button type="button" class="btn btn-danger dropdown-toggle rounded-pill" data-bs-toggle="dropdown"><i class="twicon-queens-head"></i>UI前端應用<i class="twicon-queens-head"></i></button>
+        <ul class="dropdown-menu">
+          <li><a class="dropdown-item" href="./1_UI/t11-like.html">ch1 推薦3個網站</a></li>
+          <li><a class="dropdown-item" href="./1_UI/t03-div.html">ch2 div 應用</a></li>
+          <li><a class="dropdown-item" href="./1_UI/t05-birthday.html">ch3 生日日曆</a></li>
+          <li><a class="dropdown-item" href="./1_UI/ch041.html">ch4 主題館</a></li>
+          <li><a class="dropdown-item" href="./1_UI/L06/ch052-CuteD_base.html">ch5 排版+動畫</a></li>
+          <li><a class="dropdown-item" href="./1_UI/L06/ch054.html">　　介紹畫家</a></li>
+          <li><a class="dropdown-item" href="./1_UI/L06/ch061.html">ch6 lightBox</a></li>
+          <li><a class="dropdown-item" href="./1_UI/L06/ch062CuteDesign.html">　　lightBox-2</a></li>
+          <li><a class="dropdown-item" href="./1_UI/L06/ch055--lightBox.html">　　主題結合</a></li>
+          <li><a class="dropdown-item" href="./1_UI/L06/ch091.html">ch9 bootstrap練習</a></li>
+          <li><a class="dropdown-item" href="./1_UI/L06/ch092.html">　　畫作展示</a></li>
+          <li><a class="dropdown-item" href="./1_UI/L094Travel/c94travel.html">　　旅行社</a></li>
+          <li>
+            <hr class="dropdown-divider">
+          </li>
+          <li><a class="dropdown-item" href="./1_UI/L095/c95.html">　　林肯鞋</a></li>
+          <!-- <li><a class="dropdown-item" href="#mySlider" target="_self">bootstrap+RWD<br>綜合練習（本站）</a></li> -->
+        </ul>
+      </div>
+    </ul>
+  </div>
+  <div class="ratio ratio-16x9 ">
+    <iframe class="" name="course" src="./1_UI/L095/c95.html">
+    </iframe>
+  </div>
+</main><!-- 套用 Navs & tabs, 其中Tabs with dropdowns -->
+
+<!-- <article id="myPhp" class="row justify-content-around align-content-around row-cols-2 row-cols-md-3 row-cols-xl-4 g-4 my-1 py-5 px-3 min-vh-100">
+ <div class="col">
+    <div class="card text-dark bg-light mb-3">
+      <img src="./images/3.png" class="card-img-top">
+      <div class="card-body">
+        <h5 class="card-title"><i class="twicon-tea-pot"></i>PHP</h5>
+        <a  class="card-link">無法執行</a><br>
+      </div>
+    </div>
+  </div>
+
+ <div class="col">
+    <div class="card text-dark bg-light mb-3">
+      <img src="./images/3.png" class="card-img-top">
+      <div class="card-body">
+        <h5 class="card-title"><i class="twicon-tea-pot"></i>PHP</h5>
+        <a  class="card-link">無法執行</a><br>
+      </div>
+    </div>
+  </div>
+
+ <div class="col">
+    <div class="card text-dark bg-light mb-3">
+      <img src="./images/3.png" class="card-img-top">
+      <div class="card-body">
+        <h5 class="card-title"><i class="twicon-tea-pot"></i>PHP</h5>
+        <a  class="card-link">無法執行</a><br>
+      </div>
+    </div>
+  </div>
+
+ <div class="col">
+    <div class="card text-dark bg-light mb-3">
+      <img src="./images/3.png" class="card-img-top">
+      <div class="card-body">
+        <h5 class="card-title"><i class="twicon-tea-pot"></i>PHP</h5>
+        <a  class="card-link">無法執行</a><br>
+      </div>
+    </div>
+  </div>
+
+ <div class="col">
+    <div class="card text-dark bg-light mb-3">
+      <img src="./images/3.png" class="card-img-top">
+      <div class="card-body">
+        <h5 class="card-title"><i class="twicon-tea-pot"></i>PHP</h5>
+        <a  class="card-link">無法執行</a><br>
+      </div>
+    </div>
+  </div>
+
+ <div class="col">
+    <div class="card text-dark bg-light mb-3">
+      <img src="./images/3.png" class="card-img-top">
+      <div class="card-body">
+        <h5 class="card-title"><i class="twicon-tea-pot"></i>PHP</h5>
+        <a  class="card-link">無法執行</a><br>
+      </div>
+    </div>
+  </div>
+
+</article> -->
+<!-- 套用 Card -->
+
+<footer id="myFoot" class="bg-dark text-muted py-3 text-center">
+  <small>職訓局 2022年 網頁設計班 copyright &copy; <span class="text-warning"><i class="twicon-main-island"></i>阿明</span>. all rights reserved </small>
+  <a href="#mySlider" target="_self" class="position-fixed btn btn-secondary rounded-circle">TOP</a>
+</footer>
+</body></html>
