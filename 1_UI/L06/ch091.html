@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head><meta charset="UTF-8">
+  <title>  </title>
+  <link rel="stylesheet" href="../../bootstrap/dist462/bootstrap462.css">
+  <script src="../../bootstrap/jquery.min.js"></script>
+  <script src="../../bootstrap/dist462/bootstrap462.bundle.js"></script>
+  <style>
+    *{
+      font-size: 12pt;
+      font-family: 微軟正黑體;
+      line-height: 2rem;
+    }
+  </style>
+</head>
+<body>
+<div class="container-fluid"><div class="row">
+  <div id="carouselExampleCaptions" class="carousel slide" data-ride="carousel">
+    <ol class="carousel-indicators">
+      <li data-target="#carouselExampleCaptions" data-slide-to="0" class="active"></li>
+      <li data-target="#carouselExampleCaptions" data-slide-to="1"></li>
+      <li data-target="#carouselExampleCaptions" data-slide-to="2"></li>
+    </ol>
+    <div class="carousel-inner">
+      <div class="carousel-item active">
+        <a href="http://www.yahoo.com.tw"><img src="images/1920-500-01.jpg" class="d-block w-100" alt="..."></a>
+        <div class="carousel-caption d-none d-md-block">
+          <h5>廣告輪播測試01</h5>
+          <p>廣告輪播子標題測試文字01</p>
+        </div>
+      </div>
+      <div class="carousel-item">
+        <img src="images/1920-500-02.jpg" class="d-block w-100" alt="...">
+        <div class="carousel-caption d-none d-md-block">
+          <h5>Second slide label</h5>
+          <p>Some representative placeholder content for the second slide.</p>
+        </div>
+      </div>
+      <div class="carousel-item">
+        <img src="images/1920-500-03.jpg" class="d-block w-100" alt="...">
+        <div class="carousel-caption d-none d-md-block">
+          <h5>Third slide label</h5>
+          <p>Some representative placeholder content for the third slide.</p>
+        </div>
+      </div>
+    </div>
+    <button class="carousel-control-prev" type="button" data-target="#carouselExampleCaptions" data-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="sr-only">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-target="#carouselExampleCaptions" data-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="sr-only">Next</span>
+    </button>
+  </div>
+</div></div>
+<hr>
+<div class="row text-center">
+  <div class="card col-md-4">
+    <img src="images/400x200.jpg" class="card-img-top" alt="...">
+    <div class="card-body">
+      <h5 class="card-title">資訊縮圖測試文字</h5>
+      <p class="card-text">次標題測試文字</p>
+      <a href="#" class="btn btn-primary">更多資訊</a>
+    </div>
+  </div>
+  <div class="card col-md-4">
+    <img src="images/400x200.jpg" class="card-img-top" alt="...">
+    <div class="card-body">
+      <h5 class="card-title">資訊縮圖測試文字</h5>
+      <p class="card-text">次標題測試文字</p>
+      <a href="#" class="btn btn-primary">更多資訊</a>
+      <a href="#" class="btn btn-purple">放購物車</a>
+    </div>
+  </div>
+  <div class="card col-md-4">
+    <img src="images/400x200.jpg" class="card-img-top" alt="...">
+    <div class="card-body">
+      <h5 class="card-title">Card title</h5>
+      <p class="card-text">Some quick example to make up the bulk of the card's content.</p>
+      <a href="#" class="btn btn-orange">Go somewhere</a>
+    </div>
+  </div>
+</div>
+<hr>
+<div class="container">
+  <div class="row">
+    <div class="col-5 offset-1 alert-success">col 5為徧移1位置</div>
+    <div class="col-1 offset-5 alert-primary">col 1為徧移5位置</div>
+    <div class="col-6 offset-4 alert-danger">col 6為徧移4位置</div>
+  </div>
+</div>
+<hr>
+<div class="container">
+  <div class="row">
+    <div class="col-sm-6 alert-success">平板6/4/2排版方式1~3</div>
+    <div class="col-sm-4 alert-warning">平板6/4/2排版方式1~3</div>
+    <div class="col-sm-2 alert-primary">平板6/4/2排版方式1~3</div>
+    <div class="col-3 col-md-3 alert-primary">電腦、手機排版方式1~4，</div>
+    <div class="col-3 col-md-4 alert-warning">電腦、手機排版方式1~4，</div>
+    <div class="col-3 col-md-3 alert-success">電腦、手機排版方式1~4，</div>
+    <div class="col-3 col-md-2 alert-danger">電腦、手機排版方式1~4，</div>
+  </div>
+</div>
+<hr>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-2 alert-success">手機全版排版</div>
+    <div class="col-2 alert-warning">手機全版排版</div>
+    <div class="col-8 alert-primary">手機全版排版</div>
+    <div class="col-md-7 col-lg-12 alert-warning">電腦md、電視lg組合排版</div>
+    <div class="col-md-5 col-lg-12 alert-danger">電腦md、電視lg組合排版</div>
+  </div>
+</div>
+<hr>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-3 col-sm-1 col-md-2 col-lg-6 alert-success">自訂(手機、平板、電腦、電視)</div>
+    <div class="col-3 col-sm-2 col-md-3 col-lg-4 alert-warning">自訂(手機、平板、電腦、電視)</div>
+    <div class="col-3 col-sm-3 col-md-4 col-lg-1 alert-primary">自訂(手機、平板、電腦、電視)</div>
+    <div class="col-3 col-sm-6 col-md-3 col-lg-1 alert-danger">自訂(手機、平板、電腦、電視)</div>
+    </div>
+  </div>
+</div>
+<hr>
+<hr>
+<hr>
+  <h1>Hello, world!</h1>
+  <button type="button" class="btn btn-primary">Primary</button>
+  <button type="button" class="btn btn-secondary">Secondary</button>
+  <button type="button" class="btn btn-success">Success</button>
+  <button type="button" class="btn btn-danger">Danger</button>
+  <button type="button" class="btn btn-warning">離線Warning</button>
+  <button type="button" class="btn btn-info">離線Info</button>
+  <button type="button" class="btn btn-light">離線Light</button>
+  <button type="button" class="btn btn-dark">離線Dark</button>
+<hr>
+<div class="container">
+  <div class="row">
+    <div class="col-lg-3 alert-danger">col_lg_3</div>
+    <div class="col-lg-9 alert-primary">col_lg_9</div>
+  </div>
+</div>
+<hr>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-lg-3 alert-success">大型螢幕col_lg_3</div>
+    <div class="col-lg-9 alert-warning">大型螢幕col_lg_9
+    </div>
+  </div>
+</div>
+
+</body>
+</html>

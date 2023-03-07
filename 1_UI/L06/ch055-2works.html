@@ -1,0 +1,86 @@
+<html>
+  <head>
+    <link href="ch055.css" rel="stylesheet" type="text/css" />
+
+    <!-- 淡出效果 -->
+    <script src="../../bootstrap/jquery.min.js"></script>
+    <script>
+      function effectFadeTo(targetElement,duration,from,to){
+        $(targetElement).fadeTo(duration/2,from);
+        $(targetElement).fadeTo(duration/2,to);
+      }
+    </script>
+    
+    <!-- lightbox之一 -->
+        <!--此檔上方已載入過 <script src="jquery.min.js"></script> -->
+    <script src="js/jquery.lightbox-0.5.js"></script>
+    <link rel="stylesheet" href="css/jquery.lightbox-0.5.css">
+    <!-- <script>
+      $(function(){
+        $('#contentMain a').lightBox({maxHeight:$(window).height()*0.9,maxWidth:$(window).width()*0.9});
+      })
+    </script> -->
+
+    <!-- lightbox之二 -->
+        <!--此檔上方已載入過 <script src="jquery.min.js"></script> -->
+    <script src="js/jquery.magnific-popup.js"></script>
+    <link rel="stylesheet" href="css/magnific-popup.css">
+    <!-- <script>
+      $(function(){
+        $('#contentMain').magnificPopup({delegate:'a',type:'image',gallery:{enabled:true} });
+      });
+    </script> -->
+
+    <!-- lightbox之三 -->
+    <!--此檔上方已載入過 <script src="jquery.min.js"></script> -->
+    <script src="fancybox-2.1.7/source/jquery.fancybox.pack.js"></script>
+    <link rel="stylesheet" href="fancybox-2.1.7/source/jquery.fancybox.css" media="screen">
+    <script>
+      $(function(){
+        $('.fancybox').fancybox();
+      });
+    </script>
+
+  </head>
+  <body>
+    
+<img src="images3/page_photo.jpg" width="487" height="186" class="mainPhoto transition"/>
+<section id="contentMain">
+  <div class="phtolist"><p>
+      <a href="image_miro/pic01.jpg" rel="group" class="fancybox" title="藍色二號">
+      <img src="image_miro/pic01s.jpg" onmouseover="effectFadeTo(this,2000,0.2,1)"></a></p><p>藍色二號</p></div>
+  <div class="phtolist"><p>
+      <a href="image_miro/pic02.jpg" rel="group" class="fancybox" title="嘉年華的丑角">
+      <img src="image_miro/pic02s.jpg" onmouseover="effectFadeTo(this,2000,0.2,1)"></a></p><p>嘉年華的丑角</p></div>
+  <div class="phtolist"><p>
+      <a href="image_miro/pic03.jpg" rel="group" class="fancybox" title="加泰羅尼亞獵人">
+      <img src="image_miro/pic03s.jpg" onmouseover="effectFadeTo(this,2000,0.2,1)"></a></p><p>加泰羅尼亞獵人</p></div>
+  <div class="phtolist"><p>
+      <a href="image_miro/pic04.jpg" rel="group" class="fancybox" title="農場 The Farm">
+      <img src="image_miro/pic04s.jpg" onmouseover="effectFadeTo(this,2000,0.2,1)"></a></p><p>農場 The Farm</p></div>
+  <div class="phtolist"><p>
+      <a href="image_miro/pic05.jpg" rel="group" class="fancybox" title="蒙羅奇的磚廠">
+      <img src="image_miro/pic05s.jpg" onmouseover="effectFadeTo(this,2000,0.2,1)"></a></p><p>蒙羅奇的磚廠</p></div>
+  <div class="phtolist"><p>
+      <a href="image_miro/pic06.jpg" rel="group" class="fancybox" title="有舊鞋的靜物">
+      <img src="image_miro/pic06s.jpg" onmouseover="effectFadeTo(this,2000,0.2,1)"></a></p><p>有舊鞋的靜物</p></div>
+  <div class="phtolist"><p>
+      <a href="image_miro/pic07.jpg" rel="group" class="fancybox" title="生氣蓬勃的風景">
+      <img src="image_miro/pic07s.jpg" onmouseover="effectFadeTo(this,2000,0.2,1)"></a></p><p>生氣蓬勃的風景</p></div>
+  <div class="phtolist"><p>
+      <a href="image_miro/pic08.jpg" rel="group" class="fancybox" title="紅色翅膀的蜻蜓與彗星">
+      <img src="image_miro/pic08s.jpg" onmouseover="effectFadeTo(this,2000,0.2,1)"></a></p><p>紅色翅膀的蜻蜓與彗星</p></div>
+  <div class="phtolist"><p>
+      <a href="image_miro/pic09.jpg" rel="group" class="fancybox" title="我的夢想色彩">
+      <img src="image_miro/pic09s.jpg" onmouseover="effectFadeTo(this,2000,0.2,1)"></a></p><p>我的夢想色彩</p></div>
+  <br clear="left">
+  <div id="wallpaper">
+    桌布下載：
+    <a href="image_miro/Miro003b.jpg" target="_blank">800*600 </a>、
+    <a href="image_miro/wallpaper.zip"> 1024*768</a>
+  </div>
+</section>
+
+</body>
+</html>
+
