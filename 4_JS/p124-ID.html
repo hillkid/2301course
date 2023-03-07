@@ -1,0 +1,76 @@
+<html>
+<head>
+  <title>身分證驗證程式</title>
+  <script language="javascript">
+
+  function check_data()
+  {
+    if(document.idForm.idnu.value.length <= 9)
+    {
+      alert("輸入錯誤：不足10碼");
+      return false;
+    }
+    if(document.idForm.idnu.value.length >= 11)
+    {
+      alert("輸入錯誤：超過10碼");
+      return false;
+    }
+    // var sheets= document.idForm.idnu.value.split('') ;
+    // alert (sheets[0]);
+    checkID(document.idForm.idnu.value);
+  // idForm.submit();
+  }
+
+  function checkID(idStr){
+    console.log("剛好十碼，開始執行驗證");
+
+    // 依照字母的編號排列，存入陣列備用。
+    var cityna = new Array('A', 'B', 'C', 'D','E', 'F', 'G', 'H', 'J', 'K', 'L', 'M','N', 'P', 'Q', 'R', 'S', 'T', 'U', 'V','X', 'Y', 'W', 'Z', 'I', 'O');
+
+    // 撰寫「正規表達式」第1字為英文字母，第2字為1或2，後面跟著8個數字，不分大小寫。
+    var regExpID=/^[a-z](1|2)\d{8}$/i; 
+    // 使用「正規表達式」檢驗格式
+    if (idStr.search(regExpID)==-1) {
+      // 傳回 -1 時，表示基本格式錯誤
+      alert("首碼為英文、次碼為1或2、其餘為數字");
+      return false;   //此命令應是為了中斷執行
+    }
+    // 取出第一個字元和最後一個數字。設定一個陣列來存計算值。
+    var firstChar = idStr.charAt(0).toUpperCase();
+    var lastNum = idStr.charAt(9);
+    // 找出第一個字母對應的數字，並轉換成兩位數數字。
+    for (var i=0; i<26; i++) {
+      if (firstChar == cityna[i]) {
+        var total =  Math.floor( i/10 +1)+ (i % 10);
+        break;
+      } 
+    }
+    // 執行加總計算
+    for(var i=1; i<9; i++){
+      total += parseInt(idStr.charAt(i)) * (9-i);
+    }
+    // 和最後一個數字比對
+    if (((10 - (total % 10))%10)!= lastNum) {
+      alert("檢查碼有錯！");
+      return false;
+    } 
+    return "身分證號碼正確";
+    document.getElementById("checkResult").innerHTML= "身分證號碼正確";
+    
+  }
+
+    </script>
+  </head>
+<body>
+  <h1>身分證驗證程式</h1>
+  請在欄內輸入身分證字號：<br>
+  <form name="idForm" method="post" action="idche.php">
+    <input type="text" name="idnu" size="12"><br><br>
+    <input type="button" VALUE="送出" onClick="check_data()">&nbsp;&nbsp;&nbsp;
+    <INPUT TYPE="reset" VALUE="重新輸入">
+    
+  </form>
+  <h3 id="checkResult">查詢結果？</h3>
+
+</body>
+</html>

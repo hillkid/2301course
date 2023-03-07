@@ -1,0 +1,73 @@
+<html>
+<head>
+  <meta charset="utf-8">
+  <title></title>
+  <style>
+    *{text-align: center;}
+    form{width: 600px;
+        height: 600px;
+        background-image:url(./graph/money.jpg) ;
+        margin: 0 auto;
+    }
+    form>table{width: 260px;}
+    h1{color: darkblue;text-shadow: 0.1em 0.1em yellow;}
+    b{color: red;
+        font-size: 22px;
+    }
+    u{color: blue;
+        font-size: 24px;
+        font-weight: bold;
+    }
+  </style>
+  <script>
+    function urChoice(form){
+      $send=form.send.value;   //接收資料
+      document.getElementById('content').innerHTML=($send);
+      switch($send){
+          case "威力彩":$max=38;$digits=6;break;
+          case "大樂透":$max=49;$digits=6;break;
+          case "今彩539":$max=39;$digits=5;break;
+      }
+      // pickMoney($max,$digits);
+      // $ans=pickMoney($max,$digits);
+      // sort($ans);
+      // echo "<h1>".$send."開獎</h1>";   //列印報表
+      // foreach($ans as $print){
+      //     echo "<b>".$print."</b> , ";
+      // }
+      // echo "<br>";
+      // if($send=="威力彩"){
+      //     $ans2=rand(1,8);                  //從1~8間隨機產生一個數字
+      //     echo "<br>特別號：<u>".$ans2."</u>";
+      // }
+      // document.getElementById('content').innerHTML=($send+'<b>'+$max+'</b><br><u>第'+$digits+'次推測。</u>');
+    }      
+    // function pickMoney($max,$digits){          //最大數max，
+    //   for($a=1;$a<50;$a++){       //設定陣列
+    //     $rich[$a]=$a;
+    //   }
+    //   for($a=$max;$a>=($max-$digits);$a--){            //應用?圈產生號碼
+    //     let $k=Math.floor((Math.random()*($max-$a)));     //從1~$a間隨機產生一個數字
+    //     $ans[]=$rich[$k];        //將第$k位置的號碼資料,放到選取資料陣列
+    //     $rich[$k]=$rich[$a];  //$k位置的號碼己被取走，可將最後一個位置的號碼移至此位置
+    //   };
+    //   return $ans;
+    // }
+  </script>
+</head>
+<body>
+<form name="lerto" onSubmit="urChoice(this);return false;">
+<table>
+  <tr><td>
+    <h2>財神電腦選號系統</h2>
+    <h4><input type="submit" name="send" value="威力彩"></h4>
+    <h4><input type="submit" name="send" value="大樂透"></h4>
+    <h4><input type="submit" name="send" value="今彩539"></h4>
+  </td></tr>
+  <tr><td>
+    <div id="content"></div>
+  </td></tr>
+</table>
+</form>
+</body>
+</html>
